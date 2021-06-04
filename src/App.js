@@ -87,9 +87,7 @@ function App() {
                       <CardContent>
                         
                       </CardContent>
-                      <Grid>
                       
-                      </Grid>
                       <Grid>
                         <Button className={classes.btn2} onClick={handleSubmit}>Send Confirmation</Button>
                       </Grid>

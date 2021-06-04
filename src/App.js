@@ -84,8 +84,17 @@ function App() {
                          <h3>Scanned QR Code by camera URL:</h3>
                          <a href={scanResultWebCam}> {scanResultWebCam} </a>
                       </Grid>
+                      <CardContent>
+                        
+                      </CardContent>
+                      <Grid>
+                      
+                      </Grid>
+                      <Grid>
+                        <Button className={classes.btn2} onClick={handleSubmit}>Send Confirmation</Button>
+                      </Grid>
 
-                      <Button className={classes.btn} onClick={handleSubmit}>Send Confirmation</Button>
+                      
                   </Grid>
               </CardContent>
           </Card>
@@ -112,6 +121,14 @@ const useStyles = makeStyles((theme) => ({
       font_size: 28,
       marginTop: 10,
       marginBottom: 20,
+      color: "#ffffff",
+      background: '#002266',
+    },
+    btn2 : {
+      font_family: "Helvetica",
+      font_size: 28,
+      marginTop: 250,
+    
       color: "#ffffff",
       background: '#002266',
     },

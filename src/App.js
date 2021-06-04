@@ -50,7 +50,8 @@ function App() {
                           onScan={handleScanFile}
                           legacyMode
                         />
-                        <h3>Scanned Code URL: {scanResultFile}</h3>
+                        <h3>Scanned QR Code URL:</h3>
+                        <a href={scanResultFile}> {scanResultFile} </a>
                       </Grid>
                       <Grid item xl={10} lg={4} md={6} sm={12} xs={12}>
                          
@@ -61,7 +62,8 @@ function App() {
                          onError={handleErrorCamera}
                          onScan={handleScanCamera}
                          />
-                         <h3>Scanned By Camera URL: {scanResultWebCam}</h3>
+                         <h3>Scanned QR Code by camera URL:</h3>
+                         <a href={scanResultWebCam}> {scanResultWebCam} </a>
                       </Grid>
                   </Grid>
               </CardContent>

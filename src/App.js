@@ -53,7 +53,7 @@ function App() {
                         <h3>Scanned QR Code URL:</h3>
                         <a href={scanResultFile}> {scanResultFile} </a>
                       </Grid>
-                      <Grid item xl={10} lg={4} md={6} sm={12} xs={12}>
+                      <Grid item xl={4} lg={4} md={6} sm={12} xs={12}>
                          
                          <h2 className={classes.h1}>Qr Code Scan by Camera</h2>
                          <QrReader

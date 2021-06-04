@@ -3,14 +3,19 @@
 import React, {useState, useRef} from 'react';
 import {Container, Card, CardContent, makeStyles, Grid, Button} from '@material-ui/core';
 import QrReader from 'react-qr-reader';
+import emailjs from 'emailjs-com';
 
+  
 //npm install react-qr-reader
 //npm install @material-ui/core
-function App() { 
+function App() {
   const [scanResultFile, setScanResultFile] = useState('');
   const [scanResultWebCam, setScanResultWebCam] =  useState('');
   const classes = useStyles();
   const qrRef = useRef(null);
+  const templateID =  `template_vik2k6t`;
+  const userID =  `user_jqPsmvHaIIb77uz5RM6hm`;
+
 
 
   
@@ -20,6 +25,7 @@ function App() {
   const handleScanFile = (result) => {
       if (result) {
           setScanResultFile(result);
+          
       }
   }
   const onScanFile = () => {
@@ -33,6 +39,19 @@ function App() {
         setScanResultWebCam(result);
     }
    }
+   var templateParams = {
+     qrcode: scanResultFile
+     
+};
+
+   const handleSubmit = (e) => {
+    e.preventDefault(); // Prevents default refresh by the browser
+    emailjs.send("service_logistics_ES", templateID,templateParams,userID).then(function(response) {
+      console.log(scanResultFile);
+      console.log('SUCCESS!', response.status, response.text);
+   }, function(error) {
+      console.log('FAILED...', error);
+   })};
 
   return (
     <Container className={classes.conatiner}>
@@ -65,6 +84,8 @@ function App() {
                          <h3>Scanned QR Code by camera URL:</h3>
                          <a href={scanResultWebCam}> {scanResultWebCam} </a>
                       </Grid>
+
+                      <Button className={classes.btn} onClick={handleSubmit}>Send Confirmation</Button>
                   </Grid>
               </CardContent>
           </Card>
@@ -104,7 +125,8 @@ const useStyles = makeStyles((theme) => ({
       color: "#002266",
       //background: '#002266',
       
-      
+      //logisticsES21
+      //es20202021
    }
 }));
 
